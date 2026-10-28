@@ -22,6 +22,11 @@ wordpress/
 └── build.sh                  rebuilds the zips
 ```
 
+## Preview it without installing anything
+
+- **Live WordPress in your browser:** [open in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/aijobsecrets/Flowise/claude/elite-carpentry-wordpress-t951k0/wordpress/blueprint.json). It runs `blueprint.json`, which installs the theme and plugin and builds the demo content. You're logged in as `admin` / `password`, so you can also try the editor. It's temporary and only exists in your browser tab.
+- **Offline click-through:** open `preview/index.html` in a browser. It's a static snapshot of every page with desktop and phone views. The photos and fonts load from the internet. The quote form only shows a message, and the gallery lightbox is disabled.
+
 ## Install (about 5 minutes)
 
 1. **Requirements:** WordPress 6.6 or newer, PHP 7.4 or newer.

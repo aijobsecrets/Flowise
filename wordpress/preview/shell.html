@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elite Carpentry – site preview</title>
+<style>
+	:root { --bar: #1e1b18; --bar-text: #fbf8f3; --accent: #c49a5a; }
+	html, body { margin: 0; height: 100%; background: #fbf8f3; font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+	.pv-bar { display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 16px; background: var(--bar); color: var(--bar-text); box-sizing: border-box; overflow-x: auto; white-space: nowrap; }
+	.pv-bar strong { color: var(--accent); }
+	.pv-bar a { color: var(--bar-text); text-decoration: none; opacity: .8; }
+	.pv-bar a:hover, .pv-bar a.is-on { opacity: 1; text-decoration: underline; }
+	.pv-bar .pv-sp { flex: 1; }
+	.pv-bar button { background: transparent; color: var(--bar-text); border: 1px solid rgba(255,255,255,.35); border-radius: 4px; padding: 3px 9px; cursor: pointer; }
+	.pv-bar button.is-on { background: var(--accent); border-color: var(--accent); color: #1e1b18; }
+	.pv-stage { height: calc(100% - 44px); display: flex; justify-content: center; background: #d9d2c7; }
+	iframe { border: 0; width: 100%; height: 100%; background: #fff; transition: width .25s ease; }
+	.is-mobile iframe { width: 390px; }
+</style>
+</head>
+<body>
+<div class="pv-bar">
+	<strong>Preview</strong>
+	<a href="#/">Home</a><a href="#/kitchens/">Kitchens</a><a href="#/bathrooms/">Bathrooms</a><a href="#/services/">Services</a><a href="#/projects/">Projects</a><a href="#/about/">About</a><a href="#/contact/">Contact</a>
+	<span class="pv-sp"></span>
+	<button type="button" data-w="desktop" class="is-on">Desktop</button><button type="button" data-w="mobile">Phone</button>
+</div>
+<div class="pv-stage"><iframe title="Site preview"></iframe></div>
+<script>
+var DATA = /*DATA*/null;
+var frame = document.querySelector('iframe');
+function show(route, anchor) {
+	if (!DATA.pages[route]) route = '/';
+	var html = DATA.pages[route].replace('<!--SHARED-->', '<style>' + DATA.css + '</style>' + DATA.nav);
+	frame.onload = function () {
+		if (anchor) { var t = frame.contentDocument.getElementById(anchor); if (t) t.scrollIntoView(); }
+	};
+	frame.srcdoc = html;
+	document.querySelectorAll('.pv-bar a').forEach(function (a) { a.classList.toggle('is-on', a.getAttribute('href') === '#' + route); });
+}
+function fromHash() { var h = location.hash.slice(1) || '/'; var i = h.indexOf('#'); show(i > -1 ? h.slice(0, i) : h, i > -1 ? h.slice(i + 1) : ''); }
+window.addEventListener('message', function (e) { if (e.data && e.data.go) { var h = '#' + e.data.go + (e.data.anchor ? '#' + e.data.anchor : ''); if (location.hash === h) fromHash(); else location.hash = h; } });
+window.addEventListener('hashchange', fromHash);
+document.querySelectorAll('.pv-bar button').forEach(function (b) {
+	b.addEventListener('click', function () {
+		document.querySelectorAll('.pv-bar button').forEach(function (x) { x.classList.toggle('is-on', x === b); });
+		document.body.classList.toggle('is-mobile', b.dataset.w === 'mobile');
+	});
+});
+fromHash();
+</script>
+</body>
+</html>
