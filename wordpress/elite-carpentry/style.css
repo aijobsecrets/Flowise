@@ -1,0 +1,16 @@
+/*
+Theme Name: Elite Carpentry
+Theme URI: https://example.com/elite-carpentry
+Author: Elite Carpentry
+Description: A full-site-editing block theme for a kitchen, bathroom and custom-carpentry renovation company. Every section is a block pattern, every colour and font is editable in Appearance → Editor → Styles, and it pairs with the Elite Carpentry Core plugin for Projects, quote requests and business details.
+Version: 1.0.0
+Requires at least: 6.6
+Tested up to: 6.6
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: elite-carpentry
+Tags: full-site-editing, block-patterns, block-styles, custom-colors, custom-logo, editor-style, wide-blocks, one-column, portfolio, business
+*/
+
+/* Most styling lives in theme.json. Front-end extras are in assets/css/theme.css. */

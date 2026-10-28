@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "elite-carpentry/quote-form",
+	"title": "Quote Request Form",
+	"category": "widgets",
+	"icon": "clipboard",
+	"description": "Free-estimate request form. Submissions are saved under Quote Requests and emailed to you.",
+	"keywords": [ "quote", "estimate", "contact", "form", "lead" ],
+	"textdomain": "elite-carpentry-core",
+	"attributes": {
+		"compact": { "type": "boolean", "default": false },
+		"buttonText": { "type": "string", "default": "Request my free estimate" },
+		"successMessage": { "type": "string", "default": "Thanks! Your request is in. We'll be in touch within one business day." }
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"spacing": { "margin": true, "padding": true },
+		"color": { "text": true, "background": true }
+	},
+	"editorScript": "file:./editor.js",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

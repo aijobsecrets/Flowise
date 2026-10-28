@@ -1,0 +1,244 @@
+/* Elite Carpentry – front-end and editor extras that theme.json can't express. */
+
+/* ---------- Header ---------- */
+.ec-header {
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	transition: box-shadow var(--wp--custom--transition);
+}
+.admin-bar .ec-header { top: var(--wp-admin--admin-bar--height, 32px); }
+.ec-header.is-scrolled { box-shadow: 0 6px 24px rgba(30, 27, 24, 0.1); }
+.ec-topbar a { color: inherit; text-decoration: none; }
+.ec-topbar a:hover { text-decoration: underline; }
+@media (max-width: 781px) {
+	.ec-topbar .ec-topbar__secondary { display: none; }
+	.ec-header .ec-header__cta { display: none; }
+	.ec-topbar > .wp-block-group > .wp-block-group:first-child > p:nth-child(n+2) { display: none; }
+}
+@media (max-width: 600px) {
+	.ec-header .wp-block-site-tagline { display: none; }
+}
+.ec-header .wp-block-navigation .wp-block-navigation-item__content { text-decoration: none; }
+.ec-header .wp-block-navigation .wp-block-navigation-item__content:hover { color: var(--wp--preset--color--primary); }
+.ec-header .current-menu-item > .wp-block-navigation-item__content { color: var(--wp--preset--color--primary); }
+
+/* ---------- Block styles ---------- */
+.is-style-card,
+.is-style-card-hover {
+	background: var(--wp--preset--color--white);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius);
+	box-shadow: var(--wp--preset--shadow--card);
+	overflow: hidden;
+}
+.is-style-card-hover { transition: transform var(--wp--custom--transition), box-shadow var(--wp--custom--transition); }
+.is-style-card-hover:hover { transform: translateY(-4px); box-shadow: var(--wp--preset--shadow--lift); }
+
+.is-style-checklist { list-style: none; padding-left: 0; }
+.is-style-checklist li { position: relative; padding-left: 1.9em; margin-bottom: 0.55em; }
+.is-style-checklist li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.3em;
+	width: 1.15em;
+	height: 1.15em;
+	border-radius: 50%;
+	background: var(--wp--preset--color--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath d='M8.2 13.6 4.6 10l-1.2 1.2 4.8 4.8 9-9-1.2-1.2z'/%3E%3C/svg%3E") center / 75% no-repeat;
+}
+
+.is-style-offset-frame { position: relative; }
+.is-style-offset-frame img { position: relative; z-index: 1; }
+.is-style-offset-frame::before {
+	content: "";
+	position: absolute;
+	inset: 1.25rem -1.25rem -1.25rem 1.25rem;
+	border: 2px solid var(--wp--preset--color--accent);
+	border-radius: var(--wp--custom--radius);
+}
+
+.wp-block-button.is-style-outline-light .wp-block-button__link {
+	background: transparent;
+	color: var(--wp--preset--color--white);
+	border: 2px solid rgba(255, 255, 255, 0.75);
+}
+.wp-block-button.is-style-outline-light .wp-block-button__link:hover {
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--contrast);
+}
+
+.is-style-eyebrow {
+	font-family: var(--wp--preset--font-family--body) !important;
+	font-size: var(--wp--preset--font-size--x-small) !important;
+	font-weight: 700 !important;
+	letter-spacing: 0.16em !important;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--accent);
+}
+.is-style-eyebrow::before {
+	content: "";
+	display: inline-block;
+	width: 2rem;
+	height: 2px;
+	margin-right: 0.75rem;
+	vertical-align: middle;
+	background: currentColor;
+}
+.has-text-align-center.is-style-eyebrow::before { display: none; }
+
+/* ---------- Sections ---------- */
+.ec-service-card .wp-block-image { margin: 0; }
+.ec-service-card .wp-block-image img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; border-radius: 0; transition: transform 600ms ease; }
+.ec-service-card:hover .wp-block-image img { transform: scale(1.04); }
+.ec-service-card .wp-block-image { overflow: hidden; }
+.ec-service-card a { text-decoration: none; }
+
+.ec-stat .wp-block-heading { line-height: 1; }
+
+.ec-steps { counter-reset: ec-step; }
+.ec-step { counter-increment: ec-step; position: relative; }
+.ec-step::before {
+	content: counter(ec-step, decimal-leading-zero);
+	display: block;
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: 2.75rem;
+	font-weight: 600;
+	line-height: 1;
+	color: var(--wp--preset--color--accent);
+	margin-bottom: 0.75rem;
+}
+
+.ec-gallery.wp-block-gallery img { aspect-ratio: 1; object-fit: cover; border-radius: var(--wp--custom--radius); }
+.ec-gallery.wp-block-gallery figure.wp-block-image { transition: transform var(--wp--custom--transition); }
+.ec-gallery.wp-block-gallery figure.wp-block-image:hover { transform: scale(1.02); }
+
+.ec-project-grid .wp-block-post-featured-image img { aspect-ratio: 4 / 3; object-fit: cover; }
+.ec-project-grid .wp-block-post-terms a { text-decoration: none; }
+.ec-project-filter { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: var(--wp--preset--spacing--40); }
+.ec-pill {
+	padding: 0.45rem 1rem;
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: 999px;
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 600;
+	text-decoration: none;
+	color: var(--wp--preset--color--contrast);
+	background: var(--wp--preset--color--white);
+}
+.ec-pill:hover, .ec-pill.is-active { background: var(--wp--preset--color--primary); border-color: var(--wp--preset--color--primary); color: var(--wp--preset--color--white); }
+
+.ec-testimonial .wp-block-quote { border: 0; padding: 0; margin: 0; }
+.ec-stars { color: var(--wp--preset--color--accent); letter-spacing: 0.15em; }
+
+.ec-faq .wp-block-details summary {
+	cursor: pointer;
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: var(--wp--preset--font-size--large);
+	font-weight: 600;
+	list-style: none;
+	position: relative;
+	padding-right: 2rem;
+}
+.ec-faq .wp-block-details summary::-webkit-details-marker { display: none; }
+.ec-faq .wp-block-details summary::after {
+	content: "+";
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 1.5em;
+	color: var(--wp--preset--color--primary);
+	transition: transform var(--wp--custom--transition);
+}
+.ec-faq .wp-block-details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+
+/* ---------- Before / after slider ---------- */
+.ec-before-after { position: relative; overflow: hidden; border-radius: var(--wp--custom--radius); }
+.ec-before-after .wp-block-image { margin: 0 !important; }
+.ec-before-after img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 0; }
+.ec-before-after.is-ready > .wp-block-image:last-of-type {
+	position: absolute;
+	inset: 0;
+	clip-path: inset(0 0 0 var(--ec-pos, 50%));
+}
+.ec-before-after .ec-ba__handle {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: var(--ec-pos, 50%);
+	width: 3px;
+	margin-left: -1.5px;
+	background: var(--wp--preset--color--white);
+	pointer-events: none;
+	z-index: 2;
+}
+.ec-before-after .ec-ba__handle::after {
+	content: "\2194";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 44px;
+	height: 44px;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--contrast);
+	display: grid;
+	place-items: center;
+	font-size: 1.25rem;
+	box-shadow: var(--wp--preset--shadow--lift);
+}
+.ec-before-after .ec-ba__range {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	cursor: ew-resize;
+	z-index: 3;
+	margin: 0;
+}
+.ec-before-after .ec-ba__label {
+	position: absolute;
+	top: 1rem;
+	z-index: 2;
+	padding: 0.3rem 0.7rem;
+	border-radius: 999px;
+	background: rgba(20, 17, 14, 0.75);
+	color: #fff;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	pointer-events: none;
+}
+.ec-before-after .ec-ba__label--before { left: 1rem; }
+.ec-before-after .ec-ba__label--after { right: 1rem; }
+
+/* ---------- Image fallback (if a remote photo ever fails to load) ---------- */
+img.ec-img-missing {
+	background: linear-gradient(135deg, var(--wp--preset--color--base-2), var(--wp--preset--color--border));
+	min-height: 220px;
+	color: transparent;
+}
+
+/* ---------- Reveal on scroll ---------- */
+@media (prefers-reduced-motion: no-preference) {
+	.js .ec-reveal { opacity: 0; transform: translateY(24px); transition: opacity 700ms ease, transform 700ms ease; }
+	.js .ec-reveal.is-visible { opacity: 1; transform: none; }
+}
+.editor-styles-wrapper .ec-reveal { opacity: 1 !important; transform: none !important; }
+
+/* ---------- Misc ---------- */
+/* Header, main and footer sit flush against each other. */
+.wp-site-blocks > * { margin-block-start: 0; }
+
+.ec-plain-list { list-style: none; }
+.ec-footer a { text-decoration: none; }
+.ec-footer a:hover { text-decoration: underline; color: var(--wp--preset--color--accent); }
+
+/* Readable inline links on photo/dark sections. */
+.wp-block-cover a:not(.wp-block-button__link) { color: var(--wp--preset--color--accent); }
+.ec-badges { opacity: 0.9; }
+.skip-link:focus { z-index: 100000; }
