@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.6/theme.json",
+	"version": 3,
+	"title": "Coastal White",
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "base", "name": "White", "color": "#FFFFFF" },
+				{ "slug": "base-2", "name": "Mist", "color": "#EEF3F6" },
+				{ "slug": "white", "name": "White", "color": "#FFFFFF" },
+				{ "slug": "contrast", "name": "Navy", "color": "#14273A" },
+				{ "slug": "contrast-2", "name": "Slate", "color": "#4A5D6E" },
+				{ "slug": "primary", "name": "Harbour blue", "color": "#24577A" },
+				{ "slug": "primary-dark", "name": "Deep harbour", "color": "#173D57" },
+				{ "slug": "accent", "name": "Sand", "color": "#D2B48C" },
+				{ "slug": "border", "name": "Border", "color": "#DCE4EA" }
+			]
+		},
+		"typography": {
+			"fontFamilies": [
+				{ "slug": "heading", "name": "Inter (headings)", "fontFamily": "\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif" },
+				{ "slug": "body", "name": "Inter (body)", "fontFamily": "\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif" }
+			]
+		}
+	},
+	"styles": {
+		"elements": {
+			"heading": { "typography": { "fontWeight": "700", "letterSpacing": "-0.02em" } }
+		}
+	}
+}

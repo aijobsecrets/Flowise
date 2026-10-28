@@ -1,0 +1,30 @@
+.ec-quote-form form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.25rem; }
+.ec-quote-form .ec-field { display: flex; flex-direction: column; gap: 0.35rem; margin: 0; }
+.ec-quote-form .ec-field--full { grid-column: 1 / -1; }
+.ec-quote-form label { font-size: 0.875rem; font-weight: 600; }
+.ec-quote-form label .ec-req { color: #b3261e; }
+.ec-quote-form input,
+.ec-quote-form select,
+.ec-quote-form textarea {
+	width: 100%;
+	box-sizing: border-box;
+	font: inherit;
+	font-size: 1rem;
+	padding: 0.75rem 0.85rem;
+	border: 1px solid var(--wp--preset--color--border, #d8d2c9);
+	border-radius: var(--wp--custom--radius, 6px);
+	background: var(--wp--preset--color--white, #fff);
+	color: inherit;
+}
+.ec-quote-form textarea { min-height: 120px; resize: vertical; }
+.ec-quote-form input:focus,
+.ec-quote-form select:focus,
+.ec-quote-form textarea:focus { outline: 2px solid var(--wp--preset--color--accent, #c49a5a); outline-offset: 1px; border-color: transparent; }
+.ec-quote-form .ec-hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+.ec-quote-form .ec-submit { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+.ec-quote-form .ec-submit button { cursor: pointer; border: 0; }
+.ec-quote-form .ec-privacy { font-size: 0.8rem; opacity: 0.75; margin: 0; }
+.ec-quote-form .ec-notice { grid-column: 1 / -1; padding: 0.9rem 1rem; border-radius: var(--wp--custom--radius, 6px); margin: 0 0 1rem; font-weight: 500; }
+.ec-quote-form .ec-notice--success { background: #e7f4ea; color: #1d5a2c; }
+.ec-quote-form .ec-notice--error { background: #fbe9e7; color: #8c1d18; }
+@media (max-width: 600px) { .ec-quote-form form { grid-template-columns: 1fr; } }
